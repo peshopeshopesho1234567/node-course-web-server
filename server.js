@@ -23,12 +23,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use((req, res, next) => {
-	res.render("maintenance.hbs", {
-		pageTitle: "Under maintenance"
-	})
-});
-
 app.use(express.static(__dirname + "/public"));
 
 hbs.registerHelper("getCurrentYear", () => {
@@ -50,6 +44,12 @@ app.get("/", (request, response) => {
 app.get("/about", (request, response) => {
 	response.render("about.hbs", {
 		pageTitle: "About page"
+	});
+});
+
+app.get("/portfolio", (request, response) => {
+	response.render("portfolio.hbs", {
+		pageTitle: "Portfolio page"
 	});
 });
 
